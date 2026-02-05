@@ -1,0 +1,13 @@
+Testing will begin with checking that the command line interface can handle running with no arguments and when requesting
+a file. Once we have checked that it can run with these arguments we will begin testing calling the file reader.
+This will entail checking that a no argument run returns a list of files, and running with a file name properly handles
+checking the file exists and, if so, reading and returning it.
+The psuedocode for connecting the command line and file reader are as follows:
+
+check length of args list called from command line class
+
+if length == 0
+    call file reader class with arguments no files to read
+else
+    call file reader class with file name as argument
+
