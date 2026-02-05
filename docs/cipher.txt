@@ -1,0 +1,36 @@
+Documentation:
+
+Deciphered: abcdefghijklmnopqurstuvwxyzABCDEFGHIJKLMNOPQURSTUVWXYZ1234567890
+Ciphered text: bcdefghijklmnopqurstuvwxyzABCDEFGHIJKLMNOPQURSTUVWXYZ1234567890a
+
+The text/string will be ciphered according to line 4 and my code will decipher it to line 3.
+I can use the ciphered string as the key to deciphering the code by going back one character.
+
+String == 'abcdefghijklmnopqurstuvwxyzABCDEFGHIJKLMNOPQURSTUVWXYZ1234567890'
+Get ciphered string
+Loop through the ciphered string
+if character in ciphered string == 'char' 
+  find that char index in ciphered string
+  go back by one to get deciphered char
+keep looping through until string is deciphered
+construct new string with the deciphered chars
+return new string
+
+if any chars don't match any of the chars in the key string, then it is whitespace so just keep it.
+
+Only problem is wrapping to end, if deciphered string is a then it needs to be 0.
+Can wrap around to get length - 1 index or use an if statement, so if the deciphered char is a, make it 0
+
+Test Designs:
+
+Test 1
+Ciphered text: eph
+Deciphered text: dog
+
+Test 2
+Ciphered text: apple
+Deciphered text: 0ookd
+
+Test 3
+Ciphered text: WM98c
+Deciphered text: VL87b
