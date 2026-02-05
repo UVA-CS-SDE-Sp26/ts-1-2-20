@@ -6,8 +6,33 @@ Ciphered text: bcdefghijklmnopqurstuvwxyzABCDEFGHIJKLMNOPQURSTUVWXYZ1234567890a
 The text/string will be ciphered according to line 4 and my code will decipher it to line 3.
 I can use the ciphered string as the key to deciphering the code by going back one character.
 
-instantiate this string in TopSecret Constructor
-String == 'abcdefghijklmnopqurstuvwxyzABCDEFGHIJKLMNOPQURSTUVWXYZ1234567890'
+Call new constructor, with parameters of the real key and potentially bad key
+Inside the constructor, need to validate the key
+Create helper function validate, checks if its empty, duplicate letters, or missing letters. Throw exception if key is invalid
+
+Constructor that takes in key and ciphered text
+Call new Cipher(String refKey, String badKey)    
+
+public Class Cipher
+
+public Cipher(String refKey, String badKey)
+{
+
+validate(refKey, badKey)
+
+}
+
+private void validate(String ref, String key)
+{
+if either is null
+throw exception, files null
+
+if key is missing letters, != to length of refkey
+throw exception, missing letters in key
+
+if key has reoccuring letters, cannot map to ref
+throw exception, duplciate letters in key
+}
 
 
 public String cipher(String cipher)
@@ -29,13 +54,19 @@ Can wrap around to get length - 1 index or use an if statement, so if the deciph
 Test Designs:
 
 Test 1
+Key works
 Ciphered text: eph
 Deciphered text: dog
 
 Test 2
-Ciphered text: apple
-Deciphered text: 0ookd
-
-Test 3
+Key works
 Ciphered text: WM98c
 Deciphered text: VL87b
+
+Test 3
+Bad key, length !=
+throw exception
+
+Test 4
+Bad key, letter occurs more than once
+throw exception
