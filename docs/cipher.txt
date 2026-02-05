@@ -6,8 +6,12 @@ Ciphered text: bcdefghijklmnopqurstuvwxyzABCDEFGHIJKLMNOPQURSTUVWXYZ1234567890a
 The text/string will be ciphered according to line 4 and my code will decipher it to line 3.
 I can use the ciphered string as the key to deciphering the code by going back one character.
 
+instantiate this string in TopSecret Constructor
 String == 'abcdefghijklmnopqurstuvwxyzABCDEFGHIJKLMNOPQURSTUVWXYZ1234567890'
-Get ciphered string
+
+
+public String cipher(String cipher)
+{
 Loop through the ciphered string
 if character in ciphered string == 'char' 
   find that char index in ciphered string
@@ -20,6 +24,7 @@ if any chars don't match any of the chars in the key string, then it is whitespa
 
 Only problem is wrapping to end, if deciphered string is a then it needs to be 0.
 Can wrap around to get length - 1 index or use an if statement, so if the deciphered char is a, make it 0
+}
 
 Test Designs:
 
