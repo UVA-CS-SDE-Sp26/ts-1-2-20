@@ -1,0 +1,59 @@
+FileHandler class
+
+
+This class will contain two constructors:
+
+- FileHandler()
+
+- FileHandler(String file)
+
+
+
+This class will contain one helper method:
+
+- returnFile()
+
+
+
+Note: this method does not require a parameter as we specify the file to be handled when we create an object of the FileHandler class already. 
+
+
+This class will also contain a field:
+
+- Array/String content
+
+
+When a FileHandler object is instantiated via the empty constructor, the FileHandler will print the list of files from the data folder, along with a corresponding number (thus data could be stored as a HashMap). If the FileHandler constructor is called with a String file parameter, the content of the file will be stored in the content field, provided the String matches the path. Below is the pseudocode for FileHandler(String file):
+
+
+initialize content to (empty)
+
+
+
+try
+
+	add /data to String file (so that we find the path in the repository, not a local hardcoded path)
+
+	open file with path
+
+	while(another line in file)
+
+		read line
+
+		add line to content
+
+
+
+catch
+
+	print(“Error. Missing/Incorrect file”)
+
+
+
+Tests
+
+
+
+FileHandler() -> Should print out list of files in data
+
+FileHandler(“incorrect path”) -> Should print out “Error. Missing/Incorrect file”
