@@ -1,0 +1,47 @@
+DESCRIPTION:
+
+The TopSecret class will handle the command line interface used by the user. We have the following cases:
+- If the user runs this class with no command line arguments, the class will call for the list of numbered files from
+    the ProgramControl class, and then these files will be displayed to the user.
+- If the user runs this class with a number as an argument, then the contents of the corresponding numbered file are
+    displayed on the screen, after the file has been deciphered by the Cipher class as specified.
+    - If the user doesn't pass a second argument, then the default cipher key will be called via the Cipher class.
+    - If the user supplies a second argument, that argument will specify an alternate key that will be passed to the
+        Cipher class to decipher the text file.
+- If the user runs this class with a non-number or invalid number as the first argument, then the program should display
+    an error message to the user.
+- If the user runs this class with a invalid second argument which isn't an alternate key, then the program should display
+    an error message to the user.
+The program should then exit after either showing the file list, the contents of an indicated file, or after displaying
+an error message.
+
+TESTS:
+
+1 - If no command line arguments are passed:
+    * The list of numbered files should be obtained from the ProgramControl class
+    * The list of numbered files should be displayed to the user
+    * The program should then exit
+
+2 - If a valid number is passed as the first argument with no second argument:
+    * The corresponding numbered file should be obtained from the ProgramControl class
+    * The default cipher key should be called
+    * The corresponding numbered file should be passed to the Cipher class
+    * The deciphered file should be obtained from the Cipher class
+    * The deciphered file should be displayed to the user
+    * The program should then exit
+
+3 - If a valid number is passed as the first argument with a valid second argument:
+    * The corresponding numbered file should be obtained from the ProgramControl class
+    * The alternative cipher key should be called from the second argument
+    * The corresponding numbered file should be passed to the Cipher class
+    * The deciphered file should be obtained from the Cipher class
+    * The deciphered file should be displayed to the user
+    * The program should then exit
+
+4 - If an invalid first argument is passed:
+    * The program should display an error message
+    * The program should then exit
+
+5 - If an invalid second argument is passed:
+    * The program should display an error message
+    * The program should then exit
