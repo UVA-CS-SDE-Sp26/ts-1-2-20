@@ -6,15 +6,14 @@ public class TopSecret {
         ProgramControl controller = new ProgramControl();
         if (args.length == 0) {
             controller.displayFileMenu();
+            return;
         }
 
-        else if (args.length == 1 || args.length == 2) {
-            String filename = args[0];
-            controller.displayFileContents(filename);
-        }
-
-        else {
-            System.out.println("Invalid number of arguments passed.");
+        try{
+            int fileNumber = Integer.parseInt(args[0]);
+            controller.displayFileContents(fileNumber);
+        } catch (NumberFormatException e){
+            System.out.println("Invalid fileNumber");
         }
     }
 }

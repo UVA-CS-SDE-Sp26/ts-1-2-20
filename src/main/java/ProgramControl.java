@@ -46,8 +46,17 @@ public class ProgramControl {
 
 
         }
-        public void displayFileContents(String fileName){
-                File file = fileHandler.fileHandler(0,fileName);
+        public void displayFileContents(int fileNumber){
+                File[] files = fileHandler.getListOfFiles();
+                if (files == null || files.length == 0) {
+                        System.out.println("No files found.");
+                        return;
+                }
+                if (fileNumber < 1 || fileNumber > files.length) {
+                        System.out.println("Invalid file number passed.");
+                        return;
+                }
+                File file = files[fileNumber-1];
                 displayFile(file);
 
 
