@@ -1,36 +1,71 @@
-import java.util.logging.FileHandler;
+import java.io.File;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.List;
 
 
 
 public class ProgramControl {
-        private FileHandler fileHandler;
+        private fileHandler fileHandler;
+        private Cipher cipher;
 
-        public ProgramControl(FileHandler fileHandler) {
-                this.fileHandler = fileHandler;
+        public ProgramControl() {
+                this.fileHandler = new fileHandler();
+                this.cipher = loadChiper();
+
 
         }
-
+        private Cipher loadChiper(){
+                File keyFile = new File("ciphers/key.txt");
+            List<String> lines = null;
+            try {
+                lines = Files.readAllLines(keyFile.toPath());
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            String referenceKey = lines.get(0);
+                String cipherKey = lines.get(1);
+                return new Cipher(referenceKey,cipherKey);
+        }
         public void displayFileMenu(){
                 System.out.println("Available Files:");
-                List<String> files = fileHandler.listFiles();
+                File[] files = fileHandler.getListOfFiles();
 
-                if (files.isEmpty()) {
-                        System.out.println("No Files Found");
+                if (files.length == 0 || files == null) {
+                        System.out.println("No files found.");
                         return;
                 }
 
-                for (int i=0;files.size();i++){
-                        System.out.prinln((i+1)+"."+files.get(i));
+
+                for (int i=0;i< files.length;i++){
+                        System.out.println((i+1)+"."+files[i].getName());
                 }
 
 
 
         }
         public void displayFileContents(String fileName){
-                System.out.println("Reading file: "+fileName);
+                File file = fileHandler.fileHandler(0,fileName);
+                displayFile(file);
 
-                String contents = fileHandler.readFile(fileName);
-                System.out.println(contents);
 
+        }
+
+        private void displayFile(File file){
+                try(BufferedReader reader = new BufferedReader(new FileReader(file))){
+                        StringBuilder content = new StringBuilder();
+                        String line;
+                        while((line = reader.readLine())!=null){
+                                content.append(line).append("\n");
+                        }
+                        String fileContent = content.toString();
+                        fileContent = cipher.decipher(fileContent);
+                        System.out.println(fileContent);
+                } catch (Exception e) {
+                        e.printStackTrace();
+                }
         }
 }

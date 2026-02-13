@@ -4,12 +4,13 @@ public class fileHandler{
     private File[] listOfFiles;
 
     public fileHandler(){ // returns list of files if no file name is specified
-        
+
         File files = new File("src/data");
         this.listOfFiles = files.listFiles();
 
         if(listOfFiles == null){
             System.out.println("No files found in the directory.");
+            this.listOfFiles = new File[0];
             return; // edge case
         }
         
@@ -20,7 +21,7 @@ public class fileHandler{
 
     public File fileHandler(int key, String fileName){
         try {
-            File f = new File("src/data/" + fileName); // finds correct file, creates reference pointer
+            File f = new File(fileName); // finds correct file, creates reference pointer
             if(f.exists()){
                 System.out.println("File found: " + f.getName());
                 return f;
@@ -31,5 +32,9 @@ public class fileHandler{
         }
         return null;
     }
-}   
+
+    public File[] getListOfFiles() {
+        return this.listOfFiles;
+    }
+}
 

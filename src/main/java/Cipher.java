@@ -2,6 +2,7 @@ public class Cipher
 {
     private String referenceKey;
     private String cipherKey;
+    private Cipher cipher;
 
     public Cipher(String referenceKey, String cipherKey)
     {
