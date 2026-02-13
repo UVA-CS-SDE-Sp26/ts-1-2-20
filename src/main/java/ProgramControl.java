@@ -9,11 +9,11 @@ import java.util.List;
 
 
 public class ProgramControl {
-        private fileHandler fileHandler;
+        private FileHandler fileHandler;
         private Cipher cipher;
 
         public ProgramControl() {
-                this.fileHandler = new fileHandler();
+                this.fileHandler = new FileHandler();
                 this.cipher = loadChiper();
 
 
@@ -34,7 +34,7 @@ public class ProgramControl {
                 System.out.println("Available Files:");
                 File[] files = fileHandler.getListOfFiles();
 
-                if (files.length == 0 || files == null) {
+                if (files == null || files.length == 0) {
                         System.out.println("No files found.");
                         return;
                 }

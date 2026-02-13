@@ -3,9 +3,9 @@ import java.io.File;
 public class FileHandler{
     private File[] listOfFiles;
 
-    public void fileHandler(){ // returns list of files if no file name is specified
+    public FileHandler(){ // returns list of files if no file name is specified
 
-        File files = new File("src/data");
+        File files = new File("data");
         this.listOfFiles = files.listFiles();
 
         if(listOfFiles == null){
@@ -21,7 +21,7 @@ public class FileHandler{
 
     public File fileHandler(int key, String fileName){
         try {
-            File f = new File(fileName); // finds correct file, creates reference pointer
+            File f = new File("data/" + fileName); // finds correct file, creates reference pointer
             if(f.exists()){
                 System.out.println("File found: " + f.getName());
                 return f;
