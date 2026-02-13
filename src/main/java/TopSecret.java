@@ -29,7 +29,7 @@ public class TopSecret {
             fileNumber = Integer.parseInt(args[0]);
             controller.displayFileContents(fileNumber);
         } catch (NumberFormatException e){
-            System.out.println("Invalid fileNumber");
+            System.out.println("Invalid file number passed");
             return;
         }
     }

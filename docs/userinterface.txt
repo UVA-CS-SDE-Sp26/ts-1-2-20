@@ -17,10 +17,6 @@ The program should then exit after either showing the file list, the contents of
 an error message.
 
 
-helper methods to verify arguments?
-
-
-
 TESTS:
 
 1 - If no command line arguments are passed:
@@ -49,5 +45,9 @@ TESTS:
     * The program should then exit
 
 5 - If an invalid second argument is passed:
+    * The program should display an error message
+    * The program should then exit
+
+6 - If more than two arguments are passed:
     * The program should display an error message
     * The program should then exit
