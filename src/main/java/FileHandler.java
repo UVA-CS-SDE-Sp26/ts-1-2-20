@@ -13,10 +13,7 @@ public class FileHandler{
             this.listOfFiles = new File[0];
             return; // edge case
         }
-        
-        for (File f : listOfFiles) {
-            System.out.println(f.getName()); // prints out the name of each file to our ArrayList<String>
-        }
+
     }
 
     public File fileHandler(int key, String fileName){
