@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Arrays;
 import java.nio.file.Files;
 import java.util.List;
 
@@ -47,7 +48,7 @@ public class ProgramControl {
                         System.out.println((i+1)+"."+files[i].getName());
                 }
 
-
+                Arrays.sort(files);
 
         }
         public void displayFileContents(int fileNumber){
@@ -60,6 +61,7 @@ public class ProgramControl {
                         System.out.println("Invalid file number passed.");
                         return;
                 }
+                Arrays.sort(files);
                 File file = files[fileNumber-1];
                 displayFile(file);
 
