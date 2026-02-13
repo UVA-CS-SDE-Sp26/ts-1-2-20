@@ -1,9 +1,9 @@
 import java.io.File;
 
-public class fileHandler{
+public class FileHandler{
     private File[] listOfFiles;
 
-    public fileHandler(){ // returns list of files if no file name is specified
+    public void fileHandler(){ // returns list of files if no file name is specified
 
         File files = new File("src/data");
         this.listOfFiles = files.listFiles();
