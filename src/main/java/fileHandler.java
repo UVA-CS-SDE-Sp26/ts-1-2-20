@@ -3,7 +3,7 @@ import java.io.File;
 public class FileHandler{
     private File[] listOfFiles;
 
-    public void fileHandler(){ // returns list of files if no file name is specified
+    public FileHandler(){ // returns list of files if no file name is specified
 
         File files = new File("src/data");
         this.listOfFiles = files.listFiles();
@@ -37,4 +37,3 @@ public class FileHandler{
         return this.listOfFiles;
     }
 }
-

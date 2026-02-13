@@ -1,19 +1,18 @@
-import java.io.File;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.List;
 
 
 
 public class ProgramControl {
-        private fileHandler fileHandler;
+        private FileHandler fileHandler;
         private Cipher cipher;
 
         public ProgramControl() {
-                this.fileHandler = new fileHandler();
+                this.fileHandler = new FileHandler();
                 this.cipher = loadChiper();
 
 
