@@ -16,21 +16,21 @@ public class TopSecret {
             return;
         }
 
-        try{
-            fileNumber = Integer.parseInt(args[0]);
-            controller.displayFileContents(fileNumber);
-        } catch (NumberFormatException e){
-            System.out.println("Invalid fileNumber");
-            return;
-        }
-
-        if (args.length == 2) {
+        else if (args.length == 2) {
             try {
                 controller = new ProgramControl(args[1]);
             } catch (RuntimeException e) {
                 System.out.println("Invalid cipher key");
                 return;
             }
+        }
+
+        try{
+            fileNumber = Integer.parseInt(args[0]);
+            controller.displayFileContents(fileNumber);
+        } catch (NumberFormatException e){
+            System.out.println("Invalid fileNumber");
+            return;
         }
     }
 }
