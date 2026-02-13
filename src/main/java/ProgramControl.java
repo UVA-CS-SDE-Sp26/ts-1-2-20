@@ -13,15 +13,15 @@ public class ProgramControl {
 
         public ProgramControl() {
                 this.fileHandler = new FileHandler();
-                this.cipher = loadChiper("ciphers/key.txt");
+                this.cipher = loadCipher("ciphers/key.txt");
 
 
         }
         public ProgramControl(String keyFileName) {
                 this.fileHandler = new FileHandler();
-                this.cipher = loadChiper("ciphers/" + keyFileName);
+                this.cipher = loadCipher("ciphers/" + keyFileName);
         }
-        private Cipher loadChiper(String keyFilePath){
+        private Cipher loadCipher(String keyFilePath){
                 File keyFile = new File(keyFilePath);
             List<String> lines = null;
             try {
