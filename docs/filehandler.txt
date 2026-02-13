@@ -5,7 +5,7 @@ This class will contain two constructors:
 
 - FileHandler()
 
-- FileHandler(String file)
+- FileHandler(String file, int key)
 
 
 
