@@ -5,7 +5,7 @@ public class Cipher
 
     public Cipher(String referenceKey, String cipherKey)
     {
-
+        validate(referenceKey, cipherKey);
 
         this.referenceKey = referenceKey;
         this.cipherKey = cipherKey;
