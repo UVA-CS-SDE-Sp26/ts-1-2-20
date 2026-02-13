@@ -13,12 +13,16 @@ public class ProgramControl {
 
         public ProgramControl() {
                 this.fileHandler = new FileHandler();
-                this.cipher = loadChiper();
+                this.cipher = loadChiper("ciphers/key.txt");
 
 
         }
-        private Cipher loadChiper(){
-                File keyFile = new File("ciphers/key.txt");
+        public ProgramControl(String keyFileName) {
+                this.fileHandler = new FileHandler();
+                this.cipher = loadChiper("ciphers/" + keyFileName);
+        }
+        private Cipher loadChiper(String keyFilePath){
+                File keyFile = new File(keyFilePath);
             List<String> lines = null;
             try {
                 lines = Files.readAllLines(keyFile.toPath());

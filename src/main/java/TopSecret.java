@@ -8,7 +8,12 @@ public class TopSecret {
             controller.displayFileMenu();
             return;
         }
+        if (args.length >= 2) {
+            controller = new ProgramControl(args[1]);
 
+        } else {
+            controller = new ProgramControl();
+        }
         try{
             int fileNumber = Integer.parseInt(args[0]);
             controller.displayFileContents(fileNumber);
