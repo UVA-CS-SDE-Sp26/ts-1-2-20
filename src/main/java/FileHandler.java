@@ -37,4 +37,3 @@ public class FileHandler{
         return this.listOfFiles;
     }
 }
-
