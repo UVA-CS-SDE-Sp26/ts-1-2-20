@@ -56,4 +56,4 @@ Tests
 
 FileHandler() -> Should print out list of files in data
 
-FileHandler(“incorrect path”) -> Should print out “Error. Missing/Incorrect file”
+FileHandler(key, “path DNE”) -> Should print out “Error. Missing/Incorrect file”
